@@ -383,7 +383,7 @@
 
 .ok-button {
   text-transform: uppercase;
-
+  border-color: var(--accent-color);
   inline-size: 100%;
   block-size: 38px;
 }
@@ -445,7 +445,7 @@
     aspect-ratio: 1/1;
   }
 
-  .dialog {
+  .dialog-disk {
     padding-inline: 40px;
   }
 }
