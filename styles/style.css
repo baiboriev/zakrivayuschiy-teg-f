@@ -59,7 +59,7 @@
 
 .header__logo {
   text-decoration: none;
-  
+
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   line-height: 1;
 
@@ -261,7 +261,7 @@
   transition: outline 0.3s ease;
 }
 
-.card__like-button {
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,6 +269,9 @@
   position: relative;
 
   border: 2px currentColor solid;
+}
+
+.card__like-button {
   inline-size: 130px;
   block-size: 38px;
 }
@@ -288,20 +291,13 @@
   display: flex;
   justify-content: center;
   padding-block-start: 50px;
-  padding-block-end: 78px;
+  padding-block-end: 103px;
 }
 
 .save-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
 
-  position: relative;
-
   background-color: var(--bg-color);
-
-  border: 2px currentColor solid;
 
   inline-size: clamp(310px, 80%, 340px);
   block-size: 55px;
@@ -344,7 +340,7 @@
   aspect-ratio: 1/1;
 }
 
-.dialog {
+.dialog-disk[open] {
   position: fixed;
   inset: 0;
 
@@ -363,12 +359,7 @@
   padding-inline: 30px;
 }
 
-.dialog:not([open]) {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.dialog::backdrop {
+.dialog-disk::backdrop {
   background-color: rgb(0 0 0 / 0.5);
 }
 
@@ -380,7 +371,7 @@
   color: var(--accent-color);
 }
 
-.dialog .save-icon {
+.dialog-disk .save-icon {
   min-inline-size: 39px;
 }
 
@@ -391,14 +382,7 @@
 }
 
 .ok-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
   text-transform: uppercase;
-
-  border: 2px var(--accent-color) solid;
 
   inline-size: 100%;
   block-size: 38px;
@@ -444,7 +428,7 @@
     display: flex;
     justify-content: center;
     padding-block-start: 50px;
-    padding-block-end: 78px;
+    padding-block-end: 100px;
   }
 
   .save-button {
