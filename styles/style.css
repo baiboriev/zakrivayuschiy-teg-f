@@ -23,7 +23,11 @@
       var(--strip-color) 0px 2px,
       transparent 2px 4px
     ),
-    repeating-linear-gradient(to bottom, var(--strip-color) 0px 2px, transparent 2px 4px),
+    repeating-linear-gradient(
+      to bottom,
+      var(--strip-color) 0px 2px,
+      transparent 2px 4px
+    ),
     repeating-linear-gradient(
       to bottom,
       var(--grad-color-top),
