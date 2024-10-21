@@ -36,9 +36,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --main-font: "Inter-Variable";
-    --accent-font: "PressStart2P-Regular";
-    
     --normal-font-weight: 465;
     --bold-font-weight: 785;
 

@@ -51,7 +51,6 @@
   border: 2px currentColor solid;
 
   inline-size: clamp(375px, 60%, 700px);
-  max-block-size: 368px;
 
   margin: 100px auto;
   padding-block: clamp(120px, 10%, 136px) 25px;
@@ -81,7 +80,7 @@
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 0.5em;
 }
 
 .theme-menu__button {
@@ -90,11 +89,12 @@
   font-size: 14px;
   line-height: 1;
   text-transform: uppercase;
+
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:hover,
 .theme-menu__button:disabled {
-  transition: opacity 0.3s ease;
   opacity: 60%;
 }
 
@@ -129,7 +129,6 @@
   transition: scale 0.3s ease;
 }
 
-.theme-menu__button:hover::after,
 .theme-menu__button:focus-visible::after {
   scale: 1 1;
 }
@@ -250,6 +249,8 @@
 .card__icon-button {
   block-size: 34px;
   outline: 2px transparent solid;
+
+  transition: outline 0.3s ease;
 }
 
 .card__icon-button:focus {
@@ -258,7 +259,6 @@
 
 .card__icon-button:focus-visible {
   outline: 2px currentColor solid;
-  transition: outline 0.3s ease;
 }
 
 .button {
@@ -268,7 +268,33 @@
 
   position: relative;
 
-  border: 2px currentColor solid;
+  border: 2px var(--accent-color) solid;
+  transition: box-shadow 0.3s ease;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  display: block;
+  block-size: 100%;
+  inline-size: 100%;
+  background-color: var(--accent-color);
+  scale: 0 1;
+  transform-origin: left;
+  transition: 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  scale: 1 1;
 }
 
 .card__like-button {
@@ -287,13 +313,6 @@
   color: var(--btn-color);
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  padding-block-start: 50px;
-  padding-block-end: 103px;
-}
-
 .save-button {
   gap: 10px;
 
@@ -301,36 +320,9 @@
 
   inline-size: clamp(310px, 80%, 340px);
   block-size: 55px;
-}
 
-.card__like-button:focus,
-.save-button:focus {
-  outline: none;
-}
-
-.card__like-button:focus-visible,
-.save-button:focus-visible {
-  outline: none;
-  box-shadow: 2px 2px 0 var(--accent-color);
-  transition: box-shadow 0.3s ease;
-}
-
-.card__like-button::before,
-.save-button::before {
-  content: "";
-  position: absolute;
-  display: block;
-  block-size: 100%;
-  inline-size: 100%;
-  background-color: currentColor;
-  scale: 0 1;
-  transform-origin: left;
-  transition: 0.5s ease-in-out;
-}
-
-.card__like-button:hover::before,
-.save-button:hover::before {
-  scale: 1 1;
+  margin-inline: auto;
+  margin-block: 50px 103px;
 }
 
 .save-icon {
@@ -347,25 +339,25 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 30px;
 
   background-color: var(--bg-color);
   border: 2px var(--accent-color) solid;
   transition: opacity 0.3s ease-in-out;
 
   max-inline-size: clamp(341px, 50%, 353px);
-  min-block-size: 191px;
 
-  padding-block: 30px;
+  padding-block: 28px;
   padding-inline: 30px;
 }
 
 .dialog-disk::backdrop {
-  background-color: rgb(0 0 0 / 0.5);
+  background-color: rgb(0 0 0 / 0.75);
 }
 
 .dialog-textarea {
   display: flex;
-  gap: 20px;
+  gap: 18px;
   inline-size: 100%;
   line-height: 1.5;
   color: var(--accent-color);
@@ -383,35 +375,8 @@
 
 .ok-button {
   text-transform: uppercase;
-  border-color: var(--accent-color);
   inline-size: 100%;
   block-size: 38px;
-}
-
-.ok-button:focus {
-  outline: none;
-}
-
-.ok-button:focus-visible {
-  outline: none;
-  box-shadow: 2px 2px 0 var(--accent-color);
-  transition: box-shadow 0.3s ease;
-}
-
-.ok-button::before {
-  content: "";
-  position: absolute;
-  display: block;
-  block-size: 100%;
-  inline-size: 100%;
-  background-color: var(--accent-color);
-  scale: 0 1;
-  transform-origin: left;
-  transition: 0.5s ease-in-out;
-}
-
-.ok-button:hover::before {
-  scale: 1 1;
 }
 
 @media (width <= 375px) {
@@ -424,13 +389,6 @@
     padding-inline-start: 5%;
   }
 
-  .footer {
-    display: flex;
-    justify-content: center;
-    padding-block-start: 50px;
-    padding-block-end: 100px;
-  }
-
   .save-button {
     flex-direction: column;
     justify-content: space-evenly;
@@ -438,6 +396,8 @@
 
     block-size: 84px;
     padding-block: 15px;
+
+    margin-block: 50px 100px;
   }
 
   .save-icon {
