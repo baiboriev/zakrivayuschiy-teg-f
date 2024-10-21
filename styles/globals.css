@@ -37,6 +37,20 @@ input {
   font-size: inherit;
 }
 
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  padding: 0;
+
+  text-align: center;
+}
+
 ul,
 ol {
   list-style: none;
